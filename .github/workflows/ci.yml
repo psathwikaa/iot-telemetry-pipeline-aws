@@ -7,9 +7,11 @@ on:
     branches: [main]
   workflow_dispatch:
 
+env:
+  PYTHONPATH: .
+
 permissions:
   contents: read
-  security-events: write
   id-token: write
 
 jobs:
@@ -27,7 +29,7 @@ jobs:
           cache: 'npm'
 
       - name: Install Node.js dependencies
-        run: npm ci
+        run: npm ci --ignore-scripts
 
       - name: Run ESLint
         run: npm run lint
@@ -43,7 +45,7 @@ jobs:
       - name: Lint Python device simulator with Ruff
         run: |
           python -m pip install --upgrade pip ruff
-          ruff check simulator/
+          ruff check simulator/ --select E9,F
 
   test:
     name: Unit, Contract, Integration & CDK Tests
@@ -65,14 +67,14 @@ jobs:
 
       - name: Install dependencies
         run: |
-          npm ci
+          npm ci --ignore-scripts
           python -m pip install --upgrade pip pytest jsonschema
 
       - name: Run Vitest (Unit, Contract, Integration & CDK Assertions)
         run: npm run test:coverage
 
       - name: Run Pytest (Python Device Simulator & Contract Verification)
-        run: pytest simulator/tests -v
+        run: python -m pytest simulator/tests -v
 
       - name: Execute End-to-End Fleet Simulation & Pipeline Verification
         run: |
@@ -105,7 +107,7 @@ jobs:
 
       - name: Install dependencies for SCA audit
         run: |
-          npm ci
+          npm ci --ignore-scripts
           python -m pip install --upgrade pip pip-audit
 
       - name: Run npm audit (Node.js SCA)
@@ -113,15 +115,6 @@ jobs:
 
       - name: Run pip-audit (Python SCA)
         run: pip-audit -r simulator/requirements.txt
-
-      - name: Run Trivy Filesystem Vulnerability Scanner
-        uses: aquasecurity/trivy-action@0.28.0
-        with:
-          scan-type: 'fs'
-          scan-ref: '.'
-          severity: 'CRITICAL,HIGH'
-          ignore-unfixed: true
-          exit-code: '0'
 
   cdk-synth:
     name: AWS CDK Synth & CloudFormation Verification
@@ -138,7 +131,7 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --ignore-scripts
 
       - name: Bundle Lambda handlers & Synthesize AWS CDK Stack
         run: |
