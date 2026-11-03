@@ -1,0 +1,44 @@
+{
+  "name": "iot-telemetry-pipeline-aws",
+  "version": "1.0.0",
+  "description": "Serverless IoT telemetry ingestion, anomaly detection, and silent-device monitoring pipeline on AWS (API Gateway, Lambda, DynamoDB, EventBridge, CloudWatch, AWS CDK)",
+  "private": true,
+  "scripts": {
+    "build": "tsc && node scripts/bundle-lambdas.mjs",
+    "bundle": "node scripts/bundle-lambdas.mjs",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src infra bin tests",
+    "test": "vitest run",
+    "test:unit": "vitest run tests/unit",
+    "test:contract": "vitest run tests/contract",
+    "test:integration": "vitest run tests/integration",
+    "test:infra": "vitest run tests/infra",
+    "test:coverage": "vitest run --coverage",
+    "cdk:synth": "node scripts/bundle-lambdas.mjs && cdk synth --quiet",
+    "cdk:deploy": "node scripts/bundle-lambdas.mjs && cdk deploy --require-approval never"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.700.0",
+    "@aws-sdk/client-eventbridge": "^3.700.0",
+    "@aws-sdk/lib-dynamodb": "^3.700.0",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "aws-cdk-lib": "^2.170.0",
+    "constructs": "^10.4.2"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.15.0",
+    "@types/aws-lambda": "^8.10.145",
+    "@types/node": "^22.9.0",
+    "@vitest/coverage-v8": "^2.1.5",
+    "aws-cdk": "^2.170.0",
+    "eslint": "^9.15.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.15.0",
+    "vitest": "^2.1.5"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

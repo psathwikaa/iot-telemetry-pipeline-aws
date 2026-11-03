@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "lib": ["ES2022"],
+    "outDir": "./dist",
+    "rootDir": ".",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "declaration": true,
+    "sourceMap": true
+  },
+  "include": [
+    "src/**/*.ts",
+    "infra/**/*.ts",
+    "bin/**/*.ts",
+    "tests/**/*.ts",
+    "contracts/**/*.json"
+  ],
+  "exclude": [
+    "node_modules",
+    "cdk.out",
+    "dist",
+    "simulator"
+  ]
+}

@@ -1,0 +1,224 @@
+{
+  "executedAt": "2026-11-02T18:10:00.000Z",
+  "totalFramesIngested": 17,
+  "http202Accepted": 17,
+  "deviceStates": [
+    {
+      "PK": "DEVICE_STATE",
+      "SK": "DEVICE#iot-se-gbg-001",
+      "entityType": "DEVICE_STATE",
+      "deviceId": "iot-se-gbg-001",
+      "lastSeenAt": "2026-11-02T18:09:00.000Z",
+      "lastIngestedAt": "2026-11-02T18:09:00.000Z",
+      "lastSequenceNumber": 4,
+      "firmwareVersion": "2.4.1",
+      "rat": "LTE-M",
+      "cellId": "SE-GBG-CELL-09",
+      "rssiDbm": -121,
+      "latestMetrics": {
+        "temperatureC": 59.2,
+        "humidityPct": 97.62,
+        "batteryPct": 5.64,
+        "vibrationG": 8
+      },
+      "status": "ANOMALY"
+    },
+    {
+      "PK": "DEVICE_STATE",
+      "SK": "DEVICE#iot-se-sto-002",
+      "entityType": "DEVICE_STATE",
+      "deviceId": "iot-se-sto-002",
+      "lastSeenAt": "2026-11-02T18:09:00.000Z",
+      "lastIngestedAt": "2026-11-02T18:09:00.000Z",
+      "lastSequenceNumber": 4,
+      "firmwareVersion": "2.4.1",
+      "rat": "NB-IoT",
+      "cellId": "SE-STO-CELL-14",
+      "rssiDbm": -68.3,
+      "latestMetrics": {
+        "temperatureC": 19.19,
+        "humidityPct": 41.98,
+        "batteryPct": 86.05,
+        "vibrationG": 0.35
+      },
+      "status": "HEALTHY"
+    },
+    {
+      "PK": "DEVICE_STATE",
+      "SK": "DEVICE#iot-no-osl-003",
+      "entityType": "DEVICE_STATE",
+      "deviceId": "iot-no-osl-003",
+      "lastSeenAt": "2026-11-02T18:00:00.000Z",
+      "lastIngestedAt": "2026-11-02T18:00:00.000Z",
+      "lastSequenceNumber": 1,
+      "firmwareVersion": "2.5.0",
+      "rat": "5G-NR",
+      "cellId": "NO-OSL-CELL-03",
+      "rssiDbm": -81.4,
+      "latestMetrics": {
+        "temperatureC": -6.23,
+        "humidityPct": 59.18,
+        "batteryPct": 78,
+        "vibrationG": 0.22
+      },
+      "status": "SILENT",
+      "lastAlertedSilentAt": "2026-11-02T18:10:00.000Z"
+    },
+    {
+      "PK": "DEVICE_STATE",
+      "SK": "DEVICE#iot-se-mmx-004",
+      "entityType": "DEVICE_STATE",
+      "deviceId": "iot-se-mmx-004",
+      "lastSeenAt": "2026-11-02T18:09:00.000Z",
+      "lastIngestedAt": "2026-11-02T18:09:00.000Z",
+      "lastSequenceNumber": 4,
+      "firmwareVersion": "2.3.8",
+      "rat": "LTE-M",
+      "cellId": "SE-MMX-CELL-11",
+      "rssiDbm": -72.2,
+      "latestMetrics": {
+        "temperatureC": 11.82,
+        "humidityPct": 68.34,
+        "batteryPct": 63.55,
+        "vibrationG": 0.6
+      },
+      "status": "HEALTHY"
+    },
+    {
+      "PK": "DEVICE_STATE",
+      "SK": "DEVICE#iot-no-trd-005",
+      "entityType": "DEVICE_STATE",
+      "deviceId": "iot-no-trd-005",
+      "lastSeenAt": "2026-11-02T18:09:00.000Z",
+      "lastIngestedAt": "2026-11-02T18:09:00.000Z",
+      "lastSequenceNumber": 4,
+      "firmwareVersion": "2.4.1",
+      "rat": "NB-IoT",
+      "cellId": "NO-TRD-CELL-02",
+      "rssiDbm": -86.5,
+      "latestMetrics": {
+        "temperatureC": 8.63,
+        "humidityPct": 72.37,
+        "batteryPct": 88.55,
+        "vibrationG": 0.08
+      },
+      "status": "HEALTHY"
+    }
+  ],
+  "watchdogResult": {
+    "checkedDevices": 5,
+    "newlySilentDevices": [
+      "iot-no-osl-003"
+    ],
+    "alertEventIds": [
+      "silent-bfec54e2-9706-4a1e-aa7f-7db7d1840f11"
+    ],
+    "correlationId": "watchdog-post-simulation"
+  },
+  "eventBridgeEventsPublished": 2,
+  "alertsPersisted": [
+    {
+      "PK": "ALERT#iot-se-gbg-001",
+      "SK": "TS#2026-11-02T18:09:00.000Z#alert-9dc909ce-78c9-4f3b-be2c-cf1597695368",
+      "entityType": "ALERT_AUDIT",
+      "alertId": "alert-9dc909ce-78c9-4f3b-be2c-cf1597695368",
+      "alertType": "OUT_OF_RANGE",
+      "deviceId": "iot-se-gbg-001",
+      "detectedAt": "2026-11-02T18:09:00.000Z",
+      "severity": "CRITICAL",
+      "summary": "Device iot-se-gbg-001 reported 5 out-of-range metric(s): temperatureC (59.2°C) is above maximum threshold (45°C); humidityPct (97.62%) is above maximum threshold (90%); batteryPct (5.64%) is below minimum threshold (15%); vibrationG (8g) is above maximum threshold (4g); rssiDbm (-121dBm) is below minimum threshold (-115dBm)",
+      "detail": {
+        "alertId": "alert-9dc909ce-78c9-4f3b-be2c-cf1597695368",
+        "alertType": "OUT_OF_RANGE",
+        "deviceId": "iot-se-gbg-001",
+        "timestamp": "2026-11-02T18:09:00.000Z",
+        "detectedAt": "2026-11-02T18:09:00.000Z",
+        "sequenceNumber": 4,
+        "rat": "LTE-M",
+        "cellId": "SE-GBG-CELL-09",
+        "severity": "CRITICAL",
+        "violations": [
+          {
+            "metric": "temperatureC",
+            "observed": 59.2,
+            "minAllowed": -25,
+            "maxAllowed": 45,
+            "unit": "°C",
+            "severity": "CRITICAL",
+            "reason": "temperatureC (59.2°C) is above maximum threshold (45°C)"
+          },
+          {
+            "metric": "humidityPct",
+            "observed": 97.62,
+            "minAllowed": 10,
+            "maxAllowed": 90,
+            "unit": "%",
+            "severity": "CRITICAL",
+            "reason": "humidityPct (97.62%) is above maximum threshold (90%)"
+          },
+          {
+            "metric": "batteryPct",
+            "observed": 5.64,
+            "minAllowed": 15,
+            "maxAllowed": 100,
+            "unit": "%",
+            "severity": "CRITICAL",
+            "reason": "batteryPct (5.64%) is below minimum threshold (15%)"
+          },
+          {
+            "metric": "vibrationG",
+            "observed": 8,
+            "minAllowed": 0,
+            "maxAllowed": 4,
+            "unit": "g",
+            "severity": "WARNING",
+            "reason": "vibrationG (8g) is above maximum threshold (4g)"
+          },
+          {
+            "metric": "rssiDbm",
+            "observed": -121,
+            "minAllowed": -115,
+            "maxAllowed": -30,
+            "unit": "dBm",
+            "severity": "WARNING",
+            "reason": "rssiDbm (-121dBm) is below minimum threshold (-115dBm)"
+          }
+        ],
+        "metrics": {
+          "temperatureC": 59.2,
+          "humidityPct": 97.62,
+          "batteryPct": 5.64,
+          "vibrationG": 8
+        },
+        "correlationId": "sim-iot-se-gbg-001-seq-4"
+      },
+      "expiresAt": 1801418940
+    },
+    {
+      "PK": "ALERT#iot-no-osl-003",
+      "SK": "TS#2026-11-02T18:10:00.000Z#silent-bfec54e2-9706-4a1e-aa7f-7db7d1840f11",
+      "entityType": "ALERT_AUDIT",
+      "alertId": "silent-bfec54e2-9706-4a1e-aa7f-7db7d1840f11",
+      "alertType": "DEVICE_SILENT",
+      "deviceId": "iot-no-osl-003",
+      "detectedAt": "2026-11-02T18:10:00.000Z",
+      "severity": "CRITICAL",
+      "summary": "Device iot-no-osl-003 went silent for 600s (last seen 2026-11-02T18:00:00.000Z)",
+      "detail": {
+        "alertId": "silent-bfec54e2-9706-4a1e-aa7f-7db7d1840f11",
+        "alertType": "DEVICE_SILENT",
+        "deviceId": "iot-no-osl-003",
+        "lastSeenAt": "2026-11-02T18:00:00.000Z",
+        "detectedAt": "2026-11-02T18:10:00.000Z",
+        "silenceDurationSeconds": 600,
+        "thresholdSeconds": 300,
+        "lastSequenceNumber": 1,
+        "rat": "5G-NR",
+        "cellId": "NO-OSL-CELL-03",
+        "severity": "CRITICAL",
+        "correlationId": "watchdog-post-simulation"
+      },
+      "expiresAt": 1801419000
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+name: IoT Telemetry Pipeline CI/CD
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  security-events: write
+  id-token: write
+
+jobs:
+  lint:
+    name: Lint & Typecheck (TypeScript + Python)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install Node.js dependencies
+        run: npm ci
+
+      - name: Run ESLint
+        run: npm run lint
+
+      - name: Run TypeScript compiler typecheck
+        run: npm run typecheck
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Lint Python device simulator with Ruff
+        run: |
+          python -m pip install --upgrade pip ruff
+          ruff check simulator/
+
+  test:
+    name: Unit, Contract, Integration & CDK Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          python -m pip install --upgrade pip pytest jsonschema
+
+      - name: Run Vitest (Unit, Contract, Integration & CDK Assertions)
+        run: npm run test:coverage
+
+      - name: Run Pytest (Python Device Simulator & Contract Verification)
+        run: pytest simulator/tests -v
+
+      - name: Execute End-to-End Fleet Simulation & Pipeline Verification
+        run: |
+          python -m simulator.device_simulator --rounds 4 --seed 42 --output reports/simulation_run.json
+          npx ts-node src/local-runner.ts
+
+      - name: Upload Simulation & CloudWatch EMF Artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: iot-telemetry-simulation-reports
+          path: reports/
+
+  sca-security-scan:
+    name: Dependency Vulnerability Scan (SCA)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Setup Python 3.12
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies for SCA audit
+        run: |
+          npm ci
+          python -m pip install --upgrade pip pip-audit
+
+      - name: Run npm audit (Node.js SCA)
+        run: npm audit --audit-level=high
+
+      - name: Run pip-audit (Python SCA)
+        run: pip-audit -r simulator/requirements.txt
+
+      - name: Run Trivy Filesystem Vulnerability Scanner
+        uses: aquasecurity/trivy-action@0.28.0
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          severity: 'CRITICAL,HIGH'
+          ignore-unfixed: true
+          exit-code: '0'
+
+  cdk-synth:
+    name: AWS CDK Synth & CloudFormation Verification
+    runs-on: ubuntu-latest
+    needs: [lint, test, sca-security-scan]
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Bundle Lambda handlers & Synthesize AWS CDK Stack
+        run: |
+          npm run bundle
+          npx cdk synth --quiet
+
+      - name: Upload Synthesized CloudFormation Assembly
+        uses: actions/upload-artifact@v4
+        with:
+          name: cdk-cloudformation-out
+          path: cdk.out/

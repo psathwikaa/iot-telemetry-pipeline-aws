@@ -1,0 +1,110 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://iot-telemetry.telenor-portfolio.internal/schemas/telemetry-request.v1.json",
+  "title": "IoTTelemetryIngestionRequest",
+  "description": "Canonical API Gateway request contract for cellular IoT device telemetry payloads (POST /v1/telemetry).",
+  "type": "object",
+  "required": [
+    "deviceId",
+    "timestamp",
+    "sequenceNumber",
+    "firmwareVersion",
+    "network",
+    "metrics"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "deviceId": {
+      "type": "string",
+      "pattern": "^[a-zA-Z0-9][a-zA-Z0-9_-]{3,63}$",
+      "description": "Unique cellular IoT device identifier (e.g., iot-se-gbg-001)"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "ISO-8601 UTC timestamp when telemetry was sampled on the device"
+    },
+    "sequenceNumber": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 2147483647,
+      "description": "Monotonically increasing frame counter per device session"
+    },
+    "firmwareVersion": {
+      "type": "string",
+      "pattern": "^v?[0-9]+\\.[0-9]+\\.[0-9]+(-[a-zA-Z0-9.]+)?$",
+      "description": "Semantic version of the device firmware"
+    },
+    "network": {
+      "type": "object",
+      "required": ["rat", "rssiDbm", "cellId"],
+      "additionalProperties": false,
+      "properties": {
+        "rat": {
+          "type": "string",
+          "enum": ["LTE-M", "NB-IoT", "5G-NR"],
+          "description": "Cellular Radio Access Technology"
+        },
+        "rssiDbm": {
+          "type": "number",
+          "minimum": -140,
+          "maximum": -30,
+          "description": "Received Signal Strength Indicator in dBm"
+        },
+        "cellId": {
+          "type": "string",
+          "pattern": "^[A-Z0-9-]{4,32}$",
+          "description": "Serving E-UTRAN / NR cell identifier"
+        }
+      }
+    },
+    "metrics": {
+      "type": "object",
+      "required": ["temperatureC", "humidityPct", "batteryPct"],
+      "additionalProperties": false,
+      "properties": {
+        "temperatureC": {
+          "type": "number",
+          "minimum": -80,
+          "maximum": 150,
+          "description": "Ambient or cold-chain probe temperature in degrees Celsius"
+        },
+        "humidityPct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Relative humidity percentage (0-100%)"
+        },
+        "batteryPct": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100,
+          "description": "Remaining battery state of charge percentage (0-100%)"
+        },
+        "vibrationG": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 32,
+          "description": "Optional peak triaxial acceleration in g-force"
+        }
+      }
+    },
+    "location": {
+      "type": "object",
+      "required": ["lat", "lon"],
+      "additionalProperties": false,
+      "properties": {
+        "lat": {
+          "type": "number",
+          "minimum": -90,
+          "maximum": 90
+        },
+        "lon": {
+          "type": "number",
+          "minimum": -180,
+          "maximum": 180
+        }
+      }
+    }
+  }
+}
