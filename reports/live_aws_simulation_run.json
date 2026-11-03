@@ -1,0 +1,723 @@
+{
+  "total_devices": 5,
+  "rounds": 4,
+  "messages_sent": 17,
+  "healthy_messages": 16,
+  "anomalous_messages": 1,
+  "silent_devices": [
+    "iot-no-osl-003"
+  ],
+  "contract_violations": 0,
+  "frames": [
+    {
+      "round": 1,
+      "injectedAnomaly": false,
+      "contractValid": true,
+      "payload": {
+        "deviceId": "iot-se-gbg-001",
+        "timestamp": "2026-11-02T18:00:00.000Z",
+        "sequenceNumber": 1,
+        "firmwareVersion": "2.4.1",
+        "network": {
+          "rat": "LTE-M",
+          "rssiDbm": -89.0,
+          "cellId": "SE-GBG-CELL-09"
+        },
+        "metrics": {
+          "temperatureC": 4.62,
+          "humidityPct": 53.15,
+          "batteryPct": 92.0,
+          "vibrationG": 0.27
+        },
+        "location": {
+          "lat": 57.7089,
+          "lon": 11.9746
+        }
+      },
+      "response": {
+        "statusCode": 202,
+        "body": {
+          "status": "ACCEPTED",
+          "deviceId": "iot-se-gbg-001",
+          "sequenceNumber": 1,
+          "healthStatus": "HEALTHY",
+          "anomalyDetected": false,
+          "violations": [],
+          "correlationId": "sim-iot-se-gbg-001-1-56c0e0cc"
+        },
+        "correlationId": "sim-iot-se-gbg-001-1-56c0e0cc"
+      }
+    },
+    {
+      "round": 1,
+      "injectedAnomaly": false,
+      "contractValid": true,
+      "payload": {
+        "deviceId": "iot-se-sto-002",
+        "timestamp": "2026-11-02T18:00:00.000Z",
+        "sequenceNumber": 1,
+        "firmwareVersion": "2.4.1",
+        "network": {
+          "rat": "NB-IoT",
+          "rssiDbm": -92.7,
+          "cellId": "SE-STO-CELL-14"
+        },
+        "metrics": {
+          "temperatureC": 19.21,
+          "humidityPct": 45.06,
+          "batteryPct": 86.5,
+          "vibrationG": 0.76
+        },
+        "location": {
+          "lat": 59.3293,
+          "lon": 18.0686
+        }
+      },
+      "response": {
+        "statusCode": 202,
+        "body": {
+          "status": "ACCEPTED",
+          "deviceId": "iot-se-sto-002",
+          "sequenceNumber": 1,
+          "healthStatus": "HEALTHY",
+          "anomalyDetected": false,
+          "violations": [],
+          "correlationId": "sim-iot-se-sto-002-1-ebdabe18"
+        },
+        "correlationId": "sim-iot-se-sto-002-1-ebdabe18"
+      }
+    },
+    {
+      "round": 1,
+      "injectedAnomaly": false,
+      "contractValid": true,
+      "payload": {
+        "deviceId": "iot-no-osl-003",
+        "timestamp": "2026-11-02T18:00:00.000Z",
+        "sequenceNumber": 1,
+        "firmwareVersion": "2.5.0",
+        "network": {
+          "rat": "5G-NR",
+          "rssiDbm": -81.4,
+          "cellId": "NO-OSL-CELL-03"
+        },
+        "metrics": {
+          "temperatureC": -6.23,
+          "humidityPct": 59.18,
+          "batteryPct": 78.0,
+          "vibrationG": 0.22
+        },
+        "location": {
+          "lat": 59.9139,
+          "lon": 10.7522
+        }
+      },
+      "response": {
+        "statusCode": 202,
+        "body": {
+          "status": "ACCEPTED",
+          "deviceId": "iot-no-osl-003",
+          "sequenceNumber": 1,
+          "healthStatus": "HEALTHY",
+          "anomalyDetected": false,
+          "violations": [],
+          "correlationId": "sim-iot-no-osl-003-1-a00112e9"
+        },
+        "correlationId": "sim-iot-no-osl-003-1-a00112e9"
+      }
+    },
+    {
+      "round": 1,
+      "injectedAnomaly": false,
+      "contractValid": true,
+      "payload": {
+        "deviceId": "iot-se-mmx-004",
+        "timestamp": "2026-11-02T18:00:00.000Z",
+        "sequenceNumber": 1,
+        "firmwareVersion": "2.3.8",
+        "network": {
+          "rat": "LTE-M",
+          "rssiDbm": -80.3,
+          "cellId": "SE-MMX-CELL-11"
+        },
+        "metrics": {
+          "temperatureC": 9.98,
+          "humidityPct": 66.19,
+          "batteryPct": 64.0,
+          "vibrationG": 0.57
+        },
+        "location": {
+          "lat": 55.605,
+          "lon": 13.0038
+        }
+      },
+      "response": {
+        "statusCode": 202,
+        "body": {
+          "status": "ACCEPTED",
+          "deviceId": "iot-se-mmx-004",
+          "sequenceNumber": 1,
+          "healthStatus": "HEALTHY",
+          "anomalyDetected": false,
+          "violations": [],
+          "correlationId": "sim-iot-se-mmx-004-1-6fff715c"
+        },
+        "correlationId": "sim-iot-se-mmx-004-1-6fff715c"
+      }
+    },
+    {
+      "round": 1,
+      "injectedAnomaly": false,
+      "contractValid": true,
+      "payload": {
+        "deviceId": "iot-no-trd-005",
+        "timestamp": "2026-11-02T18:00:00.000Z",
+        "sequenceNumber": 1,
+        "firmwareVersion": "2.4.1",
+        "network": {
+          "rat": "NB-IoT",
+          "rssiDbm": -94.8,
+          "cellId": "NO-TRD-CELL-02"
+        },
+        "metrics": {
+          "temperatureC": 6.96,
+          "humidityPct": 74.54,
+          "batteryPct": 89.0,
+          "vibrationG": 0.7
+        },
+        "location": {
+          "lat": 63.4305,
+          "lon": 10.3951
+        }
+      },
+      "response": {
+        "statusCode": 202,
+        "body": {
+          "status": "ACCEPTED",
+          "deviceId": "iot-no-trd-005",
+          "sequenceNumber": 1,
+          "healthStatus": "HEALTHY",
+          "anomalyDetected": false,
+          "violations": [],
+          "correlationId": "sim-iot-no-trd-005-1-d0cbf228"
+        },
+        "correlationId": "sim-iot-no-trd-005-1-d0cbf228"
+      }
+    },
+    {
+      "round": 2,
+      "injectedAnomaly": false,
+      "contractValid": true,
+      "payload": {
+        "deviceId": "iot-se-gbg-001",
+        "timestamp": "2026-11-02T18:03:00.000Z",
+        "sequenceNumber": 2,
+        "firmwareVersion": "2.4.1",
+        "network": {
+          "rat": "LTE-M",
+          "rssiDbm": -90.8,
+          "cellId": "SE-GBG-CELL-09"
+        },
+        "metrics": {
+          "temperatureC": 5.12,
+          "humidityPct": 57.19,
+          "batteryPct": 91.85,
+          "vibrationG": 0.32
+        },
+        "location": {
+          "lat": 57.7089,
+          "lon": 11.9746
+        }
+      },
+      "response": {
+        "statusCode": 202,
+        "body": {
+          "status": "ACCEPTED",
+          "deviceId": "iot-se-gbg-001",
+          "sequenceNumber": 2,
+          "healthStatus": "HEALTHY",
+          "anomalyDetected": false,
+          "violations": [],
+          "correlationId": "sim-iot-se-gbg-001-2-ee801124"
+        },
+        "correlationId": "sim-iot-se-gbg-001-2-ee801124"
+      }
+    },
+    {
+      "round": 2,
+      "injectedAnomaly": false,
+      "contractValid": true,
+      "payload": {
+        "deviceId": "iot-se-sto-002",
+        "timestamp": "2026-11-02T18:03:00.000Z",
+        "sequenceNumber": 2,
+        "firmwareVersion": "2.4.1",
+        "network": {
+          "rat": "NB-IoT",
+          "rssiDbm": -92.4,
+          "cellId": "SE-STO-CELL-14"
+        },
+        "metrics": {
+          "temperatureC": 19.87,
+          "humidityPct": 43.02,
+          "batteryPct": 86.35,
+          "vibrationG": 0.12
+        },
+        "location": {
+          "lat": 59.3293,
+          "lon": 18.0686
+        }
+      },
+      "response": {
+        "statusCode": 202,
+        "body": {
+          "status": "ACCEPTED",
+          "deviceId": "iot-se-sto-002",
+          "sequenceNumber": 2,
+          "healthStatus": "HEALTHY",
+          "anomalyDetected": false,
+          "violations": [],
+          "correlationId": "sim-iot-se-sto-002-2-138225b2"
+        },
+        "correlationId": "sim-iot-se-sto-002-2-138225b2"
+      }
+    },
+    {
+      "round": 2,
+      "injectedAnomaly": false,
+      "contractValid": true,
+      "payload": {
+        "deviceId": "iot-se-mmx-004",
+        "timestamp": "2026-11-02T18:03:00.000Z",
+        "sequenceNumber": 2,
+        "firmwareVersion": "2.3.8",
+        "network": {
+          "rat": "LTE-M",
+          "rssiDbm": -75.3,
+          "cellId": "SE-MMX-CELL-11"
+        },
+        "metrics": {
+          "temperatureC": 12.44,
+          "humidityPct": 68.62,
+          "batteryPct": 63.85,
+          "vibrationG": 0.7
+        },
+        "location": {
+          "lat": 55.605,
+          "lon": 13.0038
+        }
+      },
+      "response": {
+        "statusCode": 202,
+        "body": {
+          "status": "ACCEPTED",
+          "deviceId": "iot-se-mmx-004",
+          "sequenceNumber": 2,
+          "healthStatus": "HEALTHY",
+          "anomalyDetected": false,
+          "violations": [],
+          "correlationId": "sim-iot-se-mmx-004-2-4389c964"
+        },
+        "correlationId": "sim-iot-se-mmx-004-2-4389c964"
+      }
+    },
+    {
+      "round": 2,
+      "injectedAnomaly": false,
+      "contractValid": true,
+      "payload": {
+        "deviceId": "iot-no-trd-005",
+        "timestamp": "2026-11-02T18:03:00.000Z",
+        "sequenceNumber": 2,
+        "firmwareVersion": "2.4.1",
+        "network": {
+          "rat": "NB-IoT",
+          "rssiDbm": -80.1,
+          "cellId": "NO-TRD-CELL-02"
+        },
+        "metrics": {
+          "temperatureC": 7.91,
+          "humidityPct": 76.84,
+          "batteryPct": 88.85,
+          "vibrationG": 0.35
+        },
+        "location": {
+          "lat": 63.4305,
+          "lon": 10.3951
+        }
+      },
+      "response": {
+        "statusCode": 202,
+        "body": {
+          "status": "ACCEPTED",
+          "deviceId": "iot-no-trd-005",
+          "sequenceNumber": 2,
+          "healthStatus": "HEALTHY",
+          "anomalyDetected": false,
+          "violations": [],
+          "correlationId": "sim-iot-no-trd-005-2-081bcf5c"
+        },
+        "correlationId": "sim-iot-no-trd-005-2-081bcf5c"
+      }
+    },
+    {
+      "round": 3,
+      "injectedAnomaly": false,
+      "contractValid": true,
+      "payload": {
+        "deviceId": "iot-se-gbg-001",
+        "timestamp": "2026-11-02T18:06:00.000Z",
+        "sequenceNumber": 3,
+        "firmwareVersion": "2.4.1",
+        "network": {
+          "rat": "LTE-M",
+          "rssiDbm": -79.4,
+          "cellId": "SE-GBG-CELL-09"
+        },
+        "metrics": {
+          "temperatureC": 5.19,
+          "humidityPct": 56.71,
+          "batteryPct": 91.7,
+          "vibrationG": 0.74
+        },
+        "location": {
+          "lat": 57.7089,
+          "lon": 11.9746
+        }
+      },
+      "response": {
+        "statusCode": 202,
+        "body": {
+          "status": "ACCEPTED",
+          "deviceId": "iot-se-gbg-001",
+          "sequenceNumber": 3,
+          "healthStatus": "HEALTHY",
+          "anomalyDetected": false,
+          "violations": [],
+          "correlationId": "sim-iot-se-gbg-001-3-0ad73416"
+        },
+        "correlationId": "sim-iot-se-gbg-001-3-0ad73416"
+      }
+    },
+    {
+      "round": 3,
+      "injectedAnomaly": false,
+      "contractValid": true,
+      "payload": {
+        "deviceId": "iot-se-sto-002",
+        "timestamp": "2026-11-02T18:06:00.000Z",
+        "sequenceNumber": 3,
+        "firmwareVersion": "2.4.1",
+        "network": {
+          "rat": "NB-IoT",
+          "rssiDbm": -87.2,
+          "cellId": "SE-STO-CELL-14"
+        },
+        "metrics": {
+          "temperatureC": 19.11,
+          "humidityPct": 41.27,
+          "batteryPct": 86.2,
+          "vibrationG": 0.23
+        },
+        "location": {
+          "lat": 59.3293,
+          "lon": 18.0686
+        }
+      },
+      "response": {
+        "statusCode": 202,
+        "body": {
+          "status": "ACCEPTED",
+          "deviceId": "iot-se-sto-002",
+          "sequenceNumber": 3,
+          "healthStatus": "HEALTHY",
+          "anomalyDetected": false,
+          "violations": [],
+          "correlationId": "sim-iot-se-sto-002-3-9a68883c"
+        },
+        "correlationId": "sim-iot-se-sto-002-3-9a68883c"
+      }
+    },
+    {
+      "round": 3,
+      "injectedAnomaly": false,
+      "contractValid": true,
+      "payload": {
+        "deviceId": "iot-se-mmx-004",
+        "timestamp": "2026-11-02T18:06:00.000Z",
+        "sequenceNumber": 3,
+        "firmwareVersion": "2.3.8",
+        "network": {
+          "rat": "LTE-M",
+          "rssiDbm": -87.5,
+          "cellId": "SE-MMX-CELL-11"
+        },
+        "metrics": {
+          "temperatureC": 10.14,
+          "humidityPct": 66.4,
+          "batteryPct": 63.7,
+          "vibrationG": 0.13
+        },
+        "location": {
+          "lat": 55.605,
+          "lon": 13.0038
+        }
+      },
+      "response": {
+        "statusCode": 202,
+        "body": {
+          "status": "ACCEPTED",
+          "deviceId": "iot-se-mmx-004",
+          "sequenceNumber": 3,
+          "healthStatus": "HEALTHY",
+          "anomalyDetected": false,
+          "violations": [],
+          "correlationId": "sim-iot-se-mmx-004-3-4b7fe8a5"
+        },
+        "correlationId": "sim-iot-se-mmx-004-3-4b7fe8a5"
+      }
+    },
+    {
+      "round": 3,
+      "injectedAnomaly": false,
+      "contractValid": true,
+      "payload": {
+        "deviceId": "iot-no-trd-005",
+        "timestamp": "2026-11-02T18:06:00.000Z",
+        "sequenceNumber": 3,
+        "firmwareVersion": "2.4.1",
+        "network": {
+          "rat": "NB-IoT",
+          "rssiDbm": -89.3,
+          "cellId": "NO-TRD-CELL-02"
+        },
+        "metrics": {
+          "temperatureC": 8.21,
+          "humidityPct": 73.19,
+          "batteryPct": 88.7,
+          "vibrationG": 0.35
+        },
+        "location": {
+          "lat": 63.4305,
+          "lon": 10.3951
+        }
+      },
+      "response": {
+        "statusCode": 202,
+        "body": {
+          "status": "ACCEPTED",
+          "deviceId": "iot-no-trd-005",
+          "sequenceNumber": 3,
+          "healthStatus": "HEALTHY",
+          "anomalyDetected": false,
+          "violations": [],
+          "correlationId": "sim-iot-no-trd-005-3-a8c8f5a9"
+        },
+        "correlationId": "sim-iot-no-trd-005-3-a8c8f5a9"
+      }
+    },
+    {
+      "round": 4,
+      "injectedAnomaly": true,
+      "contractValid": true,
+      "payload": {
+        "deviceId": "iot-se-gbg-001",
+        "timestamp": "2026-11-02T18:09:00.000Z",
+        "sequenceNumber": 4,
+        "firmwareVersion": "2.4.1",
+        "network": {
+          "rat": "LTE-M",
+          "rssiDbm": -121.0,
+          "cellId": "SE-GBG-CELL-09"
+        },
+        "metrics": {
+          "temperatureC": 59.2,
+          "humidityPct": 97.62,
+          "batteryPct": 5.64,
+          "vibrationG": 8.0
+        },
+        "location": {
+          "lat": 57.7089,
+          "lon": 11.9746
+        }
+      },
+      "response": {
+        "statusCode": 202,
+        "body": {
+          "status": "ACCEPTED",
+          "deviceId": "iot-se-gbg-001",
+          "sequenceNumber": 4,
+          "healthStatus": "ANOMALY",
+          "anomalyDetected": true,
+          "violations": [
+            {
+              "metric": "temperatureC",
+              "observed": 59.2,
+              "minAllowed": -25,
+              "maxAllowed": 45,
+              "unit": "\u00b0C",
+              "severity": "CRITICAL",
+              "reason": "temperatureC (59.2\u00b0C) is above maximum threshold (45\u00b0C)"
+            },
+            {
+              "metric": "humidityPct",
+              "observed": 97.62,
+              "minAllowed": 10,
+              "maxAllowed": 90,
+              "unit": "%",
+              "severity": "CRITICAL",
+              "reason": "humidityPct (97.62%) is above maximum threshold (90%)"
+            },
+            {
+              "metric": "batteryPct",
+              "observed": 5.64,
+              "minAllowed": 15,
+              "maxAllowed": 100,
+              "unit": "%",
+              "severity": "CRITICAL",
+              "reason": "batteryPct (5.64%) is below minimum threshold (15%)"
+            },
+            {
+              "metric": "vibrationG",
+              "observed": 8,
+              "minAllowed": 0,
+              "maxAllowed": 4,
+              "unit": "g",
+              "severity": "WARNING",
+              "reason": "vibrationG (8g) is above maximum threshold (4g)"
+            },
+            {
+              "metric": "rssiDbm",
+              "observed": -121,
+              "minAllowed": -115,
+              "maxAllowed": -30,
+              "unit": "dBm",
+              "severity": "WARNING",
+              "reason": "rssiDbm (-121dBm) is below minimum threshold (-115dBm)"
+            }
+          ],
+          "alertEventId": "f1b0c929-2993-6f06-c5f8-973723eab9b2",
+          "correlationId": "sim-iot-se-gbg-001-4-c08eb2ae"
+        },
+        "correlationId": "sim-iot-se-gbg-001-4-c08eb2ae"
+      }
+    },
+    {
+      "round": 4,
+      "injectedAnomaly": false,
+      "contractValid": true,
+      "payload": {
+        "deviceId": "iot-se-sto-002",
+        "timestamp": "2026-11-02T18:09:00.000Z",
+        "sequenceNumber": 4,
+        "firmwareVersion": "2.4.1",
+        "network": {
+          "rat": "NB-IoT",
+          "rssiDbm": -68.3,
+          "cellId": "SE-STO-CELL-14"
+        },
+        "metrics": {
+          "temperatureC": 19.19,
+          "humidityPct": 41.98,
+          "batteryPct": 86.05,
+          "vibrationG": 0.35
+        },
+        "location": {
+          "lat": 59.3293,
+          "lon": 18.0686
+        }
+      },
+      "response": {
+        "statusCode": 202,
+        "body": {
+          "status": "ACCEPTED",
+          "deviceId": "iot-se-sto-002",
+          "sequenceNumber": 4,
+          "healthStatus": "HEALTHY",
+          "anomalyDetected": false,
+          "violations": [],
+          "correlationId": "sim-iot-se-sto-002-4-5a4f5ea4"
+        },
+        "correlationId": "sim-iot-se-sto-002-4-5a4f5ea4"
+      }
+    },
+    {
+      "round": 4,
+      "injectedAnomaly": false,
+      "contractValid": true,
+      "payload": {
+        "deviceId": "iot-se-mmx-004",
+        "timestamp": "2026-11-02T18:09:00.000Z",
+        "sequenceNumber": 4,
+        "firmwareVersion": "2.3.8",
+        "network": {
+          "rat": "LTE-M",
+          "rssiDbm": -72.2,
+          "cellId": "SE-MMX-CELL-11"
+        },
+        "metrics": {
+          "temperatureC": 11.82,
+          "humidityPct": 68.34,
+          "batteryPct": 63.55,
+          "vibrationG": 0.6
+        },
+        "location": {
+          "lat": 55.605,
+          "lon": 13.0038
+        }
+      },
+      "response": {
+        "statusCode": 202,
+        "body": {
+          "status": "ACCEPTED",
+          "deviceId": "iot-se-mmx-004",
+          "sequenceNumber": 4,
+          "healthStatus": "HEALTHY",
+          "anomalyDetected": false,
+          "violations": [],
+          "correlationId": "sim-iot-se-mmx-004-4-ecf76ffd"
+        },
+        "correlationId": "sim-iot-se-mmx-004-4-ecf76ffd"
+      }
+    },
+    {
+      "round": 4,
+      "injectedAnomaly": false,
+      "contractValid": true,
+      "payload": {
+        "deviceId": "iot-no-trd-005",
+        "timestamp": "2026-11-02T18:09:00.000Z",
+        "sequenceNumber": 4,
+        "firmwareVersion": "2.4.1",
+        "network": {
+          "rat": "NB-IoT",
+          "rssiDbm": -86.5,
+          "cellId": "NO-TRD-CELL-02"
+        },
+        "metrics": {
+          "temperatureC": 8.63,
+          "humidityPct": 72.37,
+          "batteryPct": 88.55,
+          "vibrationG": 0.08
+        },
+        "location": {
+          "lat": 63.4305,
+          "lon": 10.3951
+        }
+      },
+      "response": {
+        "statusCode": 202,
+        "body": {
+          "status": "ACCEPTED",
+          "deviceId": "iot-no-trd-005",
+          "sequenceNumber": 4,
+          "healthStatus": "HEALTHY",
+          "anomalyDetected": false,
+          "violations": [],
+          "correlationId": "sim-iot-no-trd-005-4-66a66948"
+        },
+        "correlationId": "sim-iot-no-trd-005-4-66a66948"
+      }
+    }
+  ]
+}

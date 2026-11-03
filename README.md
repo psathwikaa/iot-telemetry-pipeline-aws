@@ -192,11 +192,22 @@ This produces:
 - `reports/pipeline_execution_report.json`: Final DynamoDB device states, detected silent devices (`iot-no-osl-003`), and persisted `OUT_OF_RANGE` (`iot-se-gbg-001`) + `DEVICE_SILENT` (`iot-no-osl-003`) alert audit records.
 - `reports/cloudwatch_logs_and_emf.jsonl`: Structured JSON logs and CloudWatch EMF `MessagesPerDevice` metric payloads.
 
-### 4. Send Simulated Telemetry to a Live AWS API Gateway Endpoint
+### 4. Live AWS Deployment Verification (`eu-north-1` Stockholm)
+
+The stack is deployed and verified on AWS (`eu-north-1` Stockholm):
+
+- **Stack Name**: `IotTelemetryPipelineStack`
+- **API Gateway Base Endpoint**: `https://nmauca4y81.execute-api.eu-north-1.amazonaws.com/v1/`
+  - `POST https://nmauca4y81.execute-api.eu-north-1.amazonaws.com/v1/v1/telemetry`
+  - `GET https://nmauca4y81.execute-api.eu-north-1.amazonaws.com/v1/v1/devices/{deviceId}/telemetry`
+- **DynamoDB Table**: `IotTelemetryPipelineStack-IotTelemetryTableADD85A90-GAW1IRBPK2YE`
+- **EventBridge Custom Bus**: `IotTelemetryPipelineStack-TelemetryBus`
+- **Live Fleet Simulation Artifact**: [`reports/live_aws_simulation_run.json`](reports/live_aws_simulation_run.json) (`17 / 17` frames accepted with `HTTP 202`, `OUT_OF_RANGE` EventBridge alert `f1b0c929-2993-6f06-c5f8-973723eab9b2` raised and persisted to DynamoDB).
+
 ```bash
 python -m simulator.device_simulator \
-  --endpoint https://<api-id>.execute-api.eu-north-1.amazonaws.com/v1/telemetry \
-  --rounds 10
+  --endpoint https://nmauca4y81.execute-api.eu-north-1.amazonaws.com/v1/v1/telemetry \
+  --rounds 4 --seed 42 --output reports/live_aws_simulation_run.json
 ```
 
 ### 5. Synthesize or Deploy the AWS CDK Stack
