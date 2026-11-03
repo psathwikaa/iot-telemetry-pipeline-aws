@@ -8,7 +8,7 @@ new IotTelemetryStack(app, 'IotTelemetryPipelineStack', {
   description:
     'Serverless cellular IoT telemetry ingestion, out-of-range anomaly alerting, and silent-device monitoring stack',
   env: {
-    account: process.env.CDK_DEFAULT_ACCOUNT ?? '111122223333',
+    account: process.env.CDK_DEFAULT_ACCOUNT ?? '267900015216',
     region: process.env.CDK_DEFAULT_REGION ?? 'eu-north-1'
   },
   tags: {

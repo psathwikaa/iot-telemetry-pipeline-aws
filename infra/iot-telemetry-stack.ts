@@ -41,15 +41,12 @@ export class IotTelemetryStack extends cdk.Stack {
     const metricNamespace = props.metricNamespace ?? 'IotTelemetryPipeline';
     const serviceName = 'iot-telemetry-pipeline';
 
-    // 1. DynamoDB Single-Table for Telemetry History, Device Heartbeat State, and Alert Audit
+    // 1. DynamoDB Single-Table for Telemetry History, Device Heartbeat State, and Alert Audit (100% Free-Tier friendly)
     this.telemetryTable = new dynamodb.Table(this, 'IotTelemetryTable', {
       partitionKey: { name: 'PK', type: dynamodb.AttributeType.STRING },
       sortKey: { name: 'SK', type: dynamodb.AttributeType.STRING },
       billingMode: dynamodb.BillingMode.PAY_PER_REQUEST,
       timeToLiveAttribute: 'expiresAt',
-      pointInTimeRecoverySpecification: {
-        pointInTimeRecoveryEnabled: true
-      },
       encryption: dynamodb.TableEncryption.AWS_MANAGED,
       removalPolicy: cdk.RemovalPolicy.DESTROY
     });

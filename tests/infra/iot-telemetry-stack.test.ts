@@ -12,7 +12,7 @@ describe('AWS CDK Infrastructure Tests: IotTelemetryStack', () => {
   });
   const template = Template.fromStack(stack);
 
-  it('provisions a serverless DynamoDB single-table with PK/SK, TTL, and Point-in-Time Recovery', () => {
+  it('provisions a serverless DynamoDB single-table with PK/SK and TTL (Free-Tier compliant)', () => {
     template.resourceCountIs('AWS::DynamoDB::Table', 1);
     template.hasResourceProperties('AWS::DynamoDB::Table', {
       BillingMode: 'PAY_PER_REQUEST',
@@ -23,9 +23,6 @@ describe('AWS CDK Infrastructure Tests: IotTelemetryStack', () => {
       TimeToLiveSpecification: {
         AttributeName: 'expiresAt',
         Enabled: true
-      },
-      PointInTimeRecoverySpecification: {
-        PointInTimeRecoveryEnabled: true
       }
     });
   });
