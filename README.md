@@ -194,15 +194,22 @@ This produces:
 
 ### 4. Live AWS Deployment Verification (`eu-north-1` Stockholm)
 
-The stack is deployed and verified on AWS (`eu-north-1` Stockholm):
+The stack is deployed and verified live on **AWS (`eu-north-1` Stockholm)**:
 
-- **Stack Name**: `IotTelemetryPipelineStack`
-- **API Gateway Base Endpoint**: `https://nmauca4y81.execute-api.eu-north-1.amazonaws.com/v1/`
+- **Stack Name**: `IotTelemetryPipelineStack` (`arn:aws:cloudformation:eu-north-1:267900015216:stack/IotTelemetryPipelineStack/857c2350-d765-11f1-940e-0affec83ed8b`)
+- **Live API Gateway Endpoints**:
   - `POST https://nmauca4y81.execute-api.eu-north-1.amazonaws.com/v1/v1/telemetry`
-  - `GET https://nmauca4y81.execute-api.eu-north-1.amazonaws.com/v1/v1/devices/{deviceId}/telemetry`
-- **DynamoDB Table**: `IotTelemetryPipelineStack-IotTelemetryTableADD85A90-GAW1IRBPK2YE`
+  - [Live Device `iot-se-gbg-001` Telemetry & `OUT_OF_RANGE` EventBridge Alert (`GET`)](https://nmauca4y81.execute-api.eu-north-1.amazonaws.com/v1/v1/devices/iot-se-gbg-001/telemetry)
+  - [Live Device `iot-no-osl-003` Telemetry & `DEVICE_SILENT` EventBridge Watchdog Alert (`GET`)](https://nmauca4y81.execute-api.eu-north-1.amazonaws.com/v1/v1/devices/iot-no-osl-003/telemetry)
+- **DynamoDB Single-Table**: `IotTelemetryPipelineStack-IotTelemetryTableADD85A90-GAW1IRBPK2YE`
 - **EventBridge Custom Bus**: `IotTelemetryPipelineStack-TelemetryBus`
-- **Live Fleet Simulation Artifact**: [`reports/live_aws_simulation_run.json`](reports/live_aws_simulation_run.json) (`17 / 17` frames accepted with `HTTP 202`, `OUT_OF_RANGE` EventBridge alert `f1b0c929-2993-6f06-c5f8-973723eab9b2` raised and persisted to DynamoDB).
+- **Live Fleet Simulation Artifact**: [`reports/live_aws_simulation_run.json`](reports/live_aws_simulation_run.json) (`17 / 17` frames accepted with `HTTP 202`, `OUT_OF_RANGE` EventBridge alert `f1b0c929-2993-6f06-c5f8-973723eab9b2` and `DEVICE_SILENT` watchdog alert `silent-02e20fa2-4a53-4e8c-af5d-6b72a10c2385` persisted to DynamoDB).
+
+#### Live AWS API Gateway Proof: `iot-se-gbg-001` (`OUT_OF_RANGE` Alert Persisted in DynamoDB)
+![Live AWS Out-of-Range Alert Response](docs/proofs/aws-live-out-of-range-alert.png)
+
+#### Live AWS API Gateway Proof: `iot-no-osl-003` (`DEVICE_SILENT` Watchdog Alert Persisted in DynamoDB)
+![Live AWS Silent Device Watchdog Alert Response](docs/proofs/aws-live-silent-device-alert.png)
 
 ```bash
 python -m simulator.device_simulator \
